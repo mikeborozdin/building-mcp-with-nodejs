@@ -18,12 +18,14 @@ app.post("/", async (req, res) => {
     });
 
     server.registerTool(
-      "say-hello-world",
+      "say-hello",
       {
-        title: "Say hello",
+        title: "Say hello hello world",
         description: "Says hello to the world",
       },
       () => {
+        console.log("Got a request to say hello to the world");
+
         return {
           content: [{ type: "text", text: "Hello, world!" }],
         };
@@ -35,13 +37,14 @@ app.post("/", async (req, res) => {
       {
         title: "Add two numbers",
         description: "Adds two numbers",
-        // Strongly typed input schema
         inputSchema: {
           a: z.number().describe("The first number"),
           b: z.number().describe("The second number"),
         },
       },
       (input) => {
+        console.log("Got a request to add two numbers", input);
+
         return {
           content: [{ type: "text", text: `${input.a + input.b}` }],
         };
