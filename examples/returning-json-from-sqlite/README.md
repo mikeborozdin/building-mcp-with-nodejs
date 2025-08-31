@@ -1,13 +1,15 @@
-# hello-world-and-add
+# returning-json-from-sqlite
 
 This is an example of a simple MCP server built with Node.js & TypeScript.
+
+It returns data from a SQL database
 
 It's based on [this blog post and YouTube Video](https://www.mikeborozdin.com/post/building-a-simple-mcp-with-nodejs).
 
 It exposes two tools:
 
-- `say-hello` - which says `hello world`
-- `add` - adds two numbers
+- `list-wine` - gives a list of all wine
+- `get-wine-by-id` - gets a specific wine
 
 # Running
 
@@ -20,9 +22,9 @@ Edit your Claude config so that it has.
 ```json
 {
   "mcpServers": {
-    "hello-world": {
+    "wine-mcp": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "http://localhost:3000"]
+      "args": ["-y", "mcp-remote", "http://localhost:3001"]
     }
   }
 }
